@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+    --color-success: #5bd96e;
+    --color-warning: #5fc3d9;
+    --color-error: #e34a66;
+}
+
+body {
+  font-family: sans-serif;
+  background: #0f0e13;
+  color: #fff;
+  display: flex;
+  min-width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.iconBx i{
+    font-size: 26px;
+}
+
+.container .msgBx {
+    position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.039);
+  box-shadow: 0 0 9px rgba(255, 255, 255, 0.123);
+  width: 550px;
+  padding: 2rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 1.7rem;
+}
+
+.container .msgBx::before{
+    content: '';
+    position:absolute;
+    width: 60px;
+    height: 60px;
+    filter: blur(40px);   
+    z-index: -1;
+    animation: 2s infinite alternate animateGradient ease-in-out;
+}
+
+.container .msgBx.success .iconBx i{
+    color: var(--color-success);
+}
+
+.container .msgBx.warning .iconBx i{
+    color: var(--color-warning);
+}
+
+.container .msgBx.error .iconBx i{
+    color: var(--color-error);
+}
+
+.container .msgBx.success::before{
+    background: var(--color-success);
+    box-shadow: 0 0 10px var(--color-success);
+}
+
+.container .msgBx.warning::before{
+    background: var(--color-warning);
+    box-shadow: 0 0 10px var(--color-warning);
+}
+
+.container .msgBx.error::before{
+    background: var(--color-error);
+    box-shadow: 0 0 10px var(--color-error);
+}
+
+
+.container .msgBx .contentBx p, a{
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+    margin-top: 0.5rem;
+}
+
+.container .msgBx .contentBx h2{
+    font-weight: 500;
+}
+
+@keyframes animateGradient {
+    0%{
+        transform: scale(1.04);
+    }
+    100%{
+        transform: scale(1.3);
+    }
+}
